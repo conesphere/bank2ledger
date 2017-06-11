@@ -13,3 +13,10 @@ This converts CSV as it comes from DKB Online Banking
 
 Usage: dl_dkb_to_ledger.pl < infile.csv > outfile.ledger
 
+## dl_consors_to_ledger.pl
+
+This converts CSV as it comes from Consors Online Banking
+
+Usage: dl_consors_to_ledger.pl < infile.csv > outfile.ledger
+
+
