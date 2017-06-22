@@ -1,0 +1,8 @@
+TARGETS=$(patsubst %.xml, %.ledger, $(wildcard *.xml))
+
+all: $(TARGETS)
+
+
+%.ledger: %.xml
+	xsltproc ../tools/bank2ledger/dl_postbank_to_ledger.xslt $< > $@
+
