@@ -4,5 +4,5 @@ all: $(TARGETS)
 
 
 %.ledger: %.xml
-	xsltproc ../tools/bank2ledger/de_postbank_to_ledger.xslt $< > $@
+	../tools/bank2ledger/de_consors_to_ledger.pl < $< > $@
 
