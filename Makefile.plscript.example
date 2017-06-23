@@ -1,8 +1,8 @@
-TARGETS=$(patsubst %.xml, %.ledger, $(wildcard *.xml))
+TARGETS=$(patsubst %.csv, %.ledger, $(wildcard *.csv))
 
 all: $(TARGETS)
 
 
-%.ledger: %.xml
+%.ledger: %.csv
 	../tools/bank2ledger/de_consors_to_ledger.pl < $< > $@
 
