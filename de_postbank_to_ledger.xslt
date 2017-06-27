@@ -8,11 +8,11 @@
 <xsl:for-each select="pb:document/pb:BkToCstmrAcctRpt/pb:Rpt/pb:Ntry">
 <xsl:value-of select="concat(substring(pb:BookgDt/pb:Dt,1,4),'/',substring(pb:BookgDt/pb:Dt,6,2),'/',substring(pb:BookgDt/pb:Dt,9,2))"/><xsl:value-of select="' '"/><xsl:if test="pb:NtryDtls/pb:TxDtls/pb:RltdPties/pb:Cdtr/pb:Nm = ''"><xsl:value-of select="pb:NtryDtls/pb:TxDtls/pb:RltdPties/pb:Dbtr/pb:Nm"/></xsl:if><xsl:value-of select="pb:NtryDtls/pb:TxDtls/pb:RltdPties/pb:Cdtr/pb:Nm"/>
 <xsl:for-each select="pb:NtryDtls/pb:TxDtls/pb:RmtInf/pb:Ustrd">
-	; <xsl:value-of select="."/>
+    ; <xsl:value-of select="."/>
 </xsl:for-each>
-	; amnt: € <xsl:if test="pb:CdtDbtInd/text() = 'DBIT'">-</xsl:if><xsl:value-of select="pb:Amt"/>
-	Assets:Bank:Postbank<xsl:value-of select="concat(' ', /pb:document/pb:BkToCstmrAcctRpt/pb:Rpt/pb:Acct/pb:Id/pb:IBAN/text())"/>   € <xsl:if test="pb:CdtDbtInd/text() = 'DBIT'">-</xsl:if><xsl:value-of select="pb:Amt"/>   
-	Equity:Checking
+    ; amnt: € <xsl:if test="pb:CdtDbtInd/text() = 'DBIT'">-</xsl:if><xsl:value-of select="pb:Amt"/>
+    Assets:Bank:Postbank<xsl:value-of select="concat(' ', /pb:document/pb:BkToCstmrAcctRpt/pb:Rpt/pb:Acct/pb:Id/pb:IBAN/text())"/>   € <xsl:if test="pb:CdtDbtInd/text() = 'DBIT'">-</xsl:if><xsl:value-of select="pb:Amt"/>   
+    Equity:Checking
 </xsl:for-each>
 </xsl:template>
 
