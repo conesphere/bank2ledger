@@ -13,6 +13,7 @@ my $csv=Text::CSV::Encoded->new({
 
 my $mode="head";
 my $iban="undetected";
+my $out="";
 
 while(<STDIN>){
 	while ($_ !~ /\r\n$/) {
@@ -45,9 +46,11 @@ while(<STDIN>){
 		if ( ! $empfaenger ) { $empfaenger=$auftraggeber; }
 		if ( ! $empfaenger ) { $empfaenger=$referenz; }
 		if ( ! $empfaenger ) { $empfaenger=$comments[0]; }
-		print "$day $empfaenger\n";
-		print "\t; ".join("\n\t; ", @comments)."\n";
-		print "\tAssets:Bank:vbmh $iban    € $betrag\n";
-		print "\tEquity:Checking\n";
+		$out="$day $empfaenger\n".
+			"    ; ".join("\n    ; ", @comments)."\n".
+			"    Assets:Bank:vbmh $iban    € $betrag\n".
+			"    Equity:Checking\n".
+			$out;
 	} 
 }
+print $out; 
